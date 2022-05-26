@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UsersRepository } from '../../application/repositories/users.repository';
 import { SearchUsersInput } from '../../dto/users/search-users.input';
-import { CreateOneUserArgs } from '../../infrastructure/prisma/@generated/prisma-nestjs-graphql/user/create-one-user.args';
+import { CreateOneUserArgs } from '../../infrastructure/prisma/@generated/user/create-one-user.args';
 import { PrismaService } from '../../infrastructure/prisma/prisma.service';
 import { UserModel } from '../models/user.model';
 

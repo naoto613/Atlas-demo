@@ -3,7 +3,7 @@ import { CreateUserUseCase } from '../../application/use-cases/users/create-user
 import { FindUsersUseCase } from '../../application/use-cases/users/find-users.use-case';
 import { UserModel } from '../../domain/models/user.model';
 import { SearchUsersInput } from '../../dto/users/search-users.input';
-import { CreateOneUserArgs } from '../../infrastructure/prisma/@generated/prisma-nestjs-graphql/user/create-one-user.args';
+import { CreateOneUserArgs } from '../../infrastructure/prisma/@generated/user/create-one-user.args';
 
 @Resolver(() => UserModel)
 export class UsersResolver {
