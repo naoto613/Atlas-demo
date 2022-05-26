@@ -29,7 +29,7 @@ export class LoggingPlugin implements ApolloServerPlugin {
           query,
           variables,
         };
-        if (process.env.ENVIRONMENT != 'test') {
+        if (process.env.NODE_ENV !== 'test') {
           console.log(message);
         }
       },
