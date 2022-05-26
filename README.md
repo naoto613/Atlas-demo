@@ -71,3 +71,9 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## Prisma からファイルの生成
+
+```
+yarn prisma generate --schema=./src/infrastructure/prisma/schema.prisma
+```
