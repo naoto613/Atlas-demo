@@ -2,15 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { UsersRepository } from '../../application/repositories/users.repository';
 import { SearchUsersInput } from '../../dto/users/search-users.input';
 import { CreateOneUserArgs } from '../../infrastructure/prisma/@generated/user/create-one-user.args';
-import { PrismaService } from '../../infrastructure/prisma/prisma.service';
+import prisma from '../../infrastructure/prisma/prisma';
 import { UserModel } from '../models/user.model';
 
 @Injectable()
 export class UsersRepositoryImpl implements UsersRepository {
-  constructor(private readonly prisma: PrismaService) {}
-
   async create(input: Readonly<CreateOneUserArgs>): Promise<UserModel> {
-    return this.prisma.user.create(input);
+    return prisma.user.create(input);
   }
 
   async findMany(
@@ -33,7 +31,7 @@ export class UsersRepositoryImpl implements UsersRepository {
             ],
           }
         : undefined;
-    return this.prisma.user.findMany({
+    return prisma.user.findMany({
       skip,
       take,
       where,
