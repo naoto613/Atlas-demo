@@ -2,7 +2,7 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CreateUserUseCase } from '../../application/use-cases/users/create-user.use-case';
 import { FindUsersUseCase } from '../../application/use-cases/users/find-users.use-case';
 import { UserModel } from '../../domain/models/user.model';
-import { SearchUsersInput } from '../../dto/user/search-users.input';
+import { SearchUsersInput } from '../../dto/users/search-users.input';
 import { CreateOneUserArgs } from '../../infrastructure/prisma/@generated/prisma-nestjs-graphql/user/create-one-user.args';
 
 @Resolver(() => UserModel)
