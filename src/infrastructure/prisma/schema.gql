@@ -18,10 +18,10 @@ enum Authority {
 }
 
 type Query {
-  users(where: WhereInput, skip: Float, take: Float): [UserModel!]
+  users(searchInput: SearchInput, skip: Float, take: Float): [UserModel!]
 }
 
-input WhereInput {
+input SearchInput {
   email: String
   name: String
   authority: String

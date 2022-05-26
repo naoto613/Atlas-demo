@@ -2,7 +2,7 @@ import { ArgsType, Field, InputType } from '@nestjs/graphql';
 import { Authority } from '@prisma/client';
 
 @InputType()
-class WhereInput {
+class SearchInput {
   @Field(() => String, { nullable: true })
   email?: string;
 
@@ -15,8 +15,8 @@ class WhereInput {
 
 @ArgsType()
 export class SearchUsersInput {
-  @Field(() => WhereInput, { nullable: true })
-  where: WhereInput;
+  @Field(() => SearchInput, { nullable: true })
+  searchInput?: SearchInput;
 
   @Field(() => Number, { nullable: true })
   skip?: number;

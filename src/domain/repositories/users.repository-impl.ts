@@ -16,23 +16,27 @@ export class UsersRepositoryImpl implements UsersRepository {
   async findMany(
     input: Readonly<SearchUsersInput>,
   ): Promise<UserModel[] | null> {
-    const { skip, take, where } = input;
+    const { skip, take, searchInput } = input;
+    const where =
+      searchInput !== null
+        ? {
+            OR: [
+              {
+                email: { contains: searchInput.email },
+              },
+              {
+                name: { contains: searchInput.name },
+              },
+              {
+                authority: { equals: searchInput.authority },
+              },
+            ],
+          }
+        : undefined;
     return this.prisma.user.findMany({
       skip,
       take,
-      where: {
-        OR: [
-          {
-            email: { contains: where.email },
-          },
-          {
-            name: { contains: where.name },
-          },
-          {
-            authority: { equals: where.authority },
-          },
-        ],
-      },
+      where,
       orderBy: {
         email: 'asc',
       },
