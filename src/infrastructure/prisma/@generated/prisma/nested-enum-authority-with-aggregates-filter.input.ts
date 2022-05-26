@@ -6,25 +6,24 @@ import { NestedEnumAuthorityFilter } from './nested-enum-authority-filter.input'
 
 @InputType()
 export class NestedEnumAuthorityWithAggregatesFilter {
+  @Field(() => Authority, { nullable: true })
+  equals?: keyof typeof Authority;
 
-    @Field(() => Authority, {nullable:true})
-    equals?: keyof typeof Authority;
+  @Field(() => [Authority], { nullable: true })
+  in?: Array<keyof typeof Authority>;
 
-    @Field(() => [Authority], {nullable:true})
-    in?: Array<keyof typeof Authority>;
+  @Field(() => [Authority], { nullable: true })
+  notIn?: Array<keyof typeof Authority>;
 
-    @Field(() => [Authority], {nullable:true})
-    notIn?: Array<keyof typeof Authority>;
+  @Field(() => NestedEnumAuthorityWithAggregatesFilter, { nullable: true })
+  not?: NestedEnumAuthorityWithAggregatesFilter;
 
-    @Field(() => NestedEnumAuthorityWithAggregatesFilter, {nullable:true})
-    not?: NestedEnumAuthorityWithAggregatesFilter;
+  @Field(() => NestedIntFilter, { nullable: true })
+  _count?: NestedIntFilter;
 
-    @Field(() => NestedIntFilter, {nullable:true})
-    _count?: NestedIntFilter;
+  @Field(() => NestedEnumAuthorityFilter, { nullable: true })
+  _min?: NestedEnumAuthorityFilter;
 
-    @Field(() => NestedEnumAuthorityFilter, {nullable:true})
-    _min?: NestedEnumAuthorityFilter;
-
-    @Field(() => NestedEnumAuthorityFilter, {nullable:true})
-    _max?: NestedEnumAuthorityFilter;
+  @Field(() => NestedEnumAuthorityFilter, { nullable: true })
+  _max?: NestedEnumAuthorityFilter;
 }

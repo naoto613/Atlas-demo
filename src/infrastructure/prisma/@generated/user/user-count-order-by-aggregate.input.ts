@@ -5,25 +5,24 @@ import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class UserCountOrderByAggregateInput {
+  @Field(() => SortOrder, { nullable: true })
+  id?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  email?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    email?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  name?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    name?: keyof typeof SortOrder;
+  @HideField()
+  createdAt?: keyof typeof SortOrder;
 
-    @HideField()
-    createdAt?: keyof typeof SortOrder;
+  @HideField()
+  updatedAt?: keyof typeof SortOrder;
 
-    @HideField()
-    updatedAt?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  authority?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    authority?: keyof typeof SortOrder;
-
-    @HideField()
-    hashedRefreshToken?: keyof typeof SortOrder;
+  @HideField()
+  hashedRefreshToken?: keyof typeof SortOrder;
 }

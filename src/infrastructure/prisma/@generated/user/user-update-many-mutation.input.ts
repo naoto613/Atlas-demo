@@ -8,22 +8,21 @@ import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-str
 
 @InputType()
 export class UserUpdateManyMutationInput {
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  email?: StringFieldUpdateOperationsInput;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    email?: StringFieldUpdateOperationsInput;
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  name?: StringFieldUpdateOperationsInput;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    name?: StringFieldUpdateOperationsInput;
+  @HideField()
+  createdAt?: DateTimeFieldUpdateOperationsInput;
 
-    @HideField()
-    createdAt?: DateTimeFieldUpdateOperationsInput;
+  @HideField()
+  updatedAt?: DateTimeFieldUpdateOperationsInput;
 
-    @HideField()
-    updatedAt?: DateTimeFieldUpdateOperationsInput;
+  @Field(() => EnumAuthorityFieldUpdateOperationsInput, { nullable: true })
+  authority?: EnumAuthorityFieldUpdateOperationsInput;
 
-    @Field(() => EnumAuthorityFieldUpdateOperationsInput, {nullable:true})
-    authority?: EnumAuthorityFieldUpdateOperationsInput;
-
-    @HideField()
-    hashedRefreshToken?: NullableStringFieldUpdateOperationsInput;
+  @HideField()
+  hashedRefreshToken?: NullableStringFieldUpdateOperationsInput;
 }

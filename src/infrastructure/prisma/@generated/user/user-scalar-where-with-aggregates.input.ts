@@ -9,34 +9,33 @@ import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-wi
 
 @InputType()
 export class UserScalarWhereWithAggregatesInput {
+  @Field(() => [UserScalarWhereWithAggregatesInput], { nullable: true })
+  AND?: Array<UserScalarWhereWithAggregatesInput>;
 
-    @Field(() => [UserScalarWhereWithAggregatesInput], {nullable:true})
-    AND?: Array<UserScalarWhereWithAggregatesInput>;
+  @Field(() => [UserScalarWhereWithAggregatesInput], { nullable: true })
+  OR?: Array<UserScalarWhereWithAggregatesInput>;
 
-    @Field(() => [UserScalarWhereWithAggregatesInput], {nullable:true})
-    OR?: Array<UserScalarWhereWithAggregatesInput>;
+  @Field(() => [UserScalarWhereWithAggregatesInput], { nullable: true })
+  NOT?: Array<UserScalarWhereWithAggregatesInput>;
 
-    @Field(() => [UserScalarWhereWithAggregatesInput], {nullable:true})
-    NOT?: Array<UserScalarWhereWithAggregatesInput>;
+  @Field(() => IntWithAggregatesFilter, { nullable: true })
+  id?: IntWithAggregatesFilter;
 
-    @Field(() => IntWithAggregatesFilter, {nullable:true})
-    id?: IntWithAggregatesFilter;
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  email?: StringWithAggregatesFilter;
 
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    email?: StringWithAggregatesFilter;
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  name?: StringWithAggregatesFilter;
 
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    name?: StringWithAggregatesFilter;
+  @HideField()
+  createdAt?: DateTimeWithAggregatesFilter;
 
-    @HideField()
-    createdAt?: DateTimeWithAggregatesFilter;
+  @HideField()
+  updatedAt?: DateTimeWithAggregatesFilter;
 
-    @HideField()
-    updatedAt?: DateTimeWithAggregatesFilter;
+  @Field(() => EnumAuthorityWithAggregatesFilter, { nullable: true })
+  authority?: EnumAuthorityWithAggregatesFilter;
 
-    @Field(() => EnumAuthorityWithAggregatesFilter, {nullable:true})
-    authority?: EnumAuthorityWithAggregatesFilter;
-
-    @HideField()
-    hashedRefreshToken?: StringNullableWithAggregatesFilter;
+  @HideField()
+  hashedRefreshToken?: StringNullableWithAggregatesFilter;
 }

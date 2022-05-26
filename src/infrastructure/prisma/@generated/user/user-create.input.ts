@@ -6,23 +6,22 @@ import { Authority } from '../prisma/authority.enum';
 
 @InputType()
 export class UserCreateInput {
+  @Field(() => String, { nullable: false })
+  email!: string;
 
-    @Field(() => String, {nullable:false})
-    email!: string;
+  @Field(() => String, { nullable: false })
+  @Validator.IsNotEmpty()
+  name!: string;
 
-    @Field(() => String, {nullable:false})
-    @Validator.IsNotEmpty()
-    name!: string;
+  @HideField()
+  createdAt?: Date | string;
 
-    @HideField()
-    createdAt?: Date | string;
+  @HideField()
+  updatedAt?: Date | string;
 
-    @HideField()
-    updatedAt?: Date | string;
+  @Field(() => Authority, { nullable: true })
+  authority?: keyof typeof Authority;
 
-    @Field(() => Authority, {nullable:true})
-    authority?: keyof typeof Authority;
-
-    @HideField()
-    hashedRefreshToken?: string;
+  @HideField()
+  hashedRefreshToken?: string;
 }
