@@ -12,19 +12,18 @@
     "start": "nest start --watch",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "generate": "prisma generate && eslint \"src/@generated/prisma-nestjs-graphql/**/*.ts\" --fix",
+    "generate": "prisma generate && eslint \"src/infrastructure/prisma/@generated/**/*.ts\" --fix",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "test:db": "dotenv -e .env.test yarn prisma migrate deploy",
+    "test:db": "dotenv -e .env.test prisma migrate deploy",
     "test:simple": "dotenv -e .env.test jest",
     "test": "dotenv -e .env.test jest --runInBand --forceExit --detectOpenHandles",
     "test:watch": "dotenv -e .env.test jest --watch",
     "test:cov": "dotenv -e .env.test jest --coverage",
     "test:debug": "dotenv -e .env.test node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "dotenv -e .env.test jest --config ./test/jest-e2e.json",
-    "commit": "git-cz-api"
+    "test:e2e": "dotenv -e .env.test jest --config ./test/jest-e2e.json"
   },
   "prisma": {
-    "seed": "ts-node prisma/seed.ts"
+    "seed": "ts-node src/infrastructure/prisma/seed.ts"
   },
   "dependencies": {
     "@nestjs/apollo": "^10.0.12",
