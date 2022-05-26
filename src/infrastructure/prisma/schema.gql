@@ -1,0 +1,38 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserModel {
+  id: ID!
+
+  """@Validator.@IsEmail()"""
+  email: String!
+  name: String!
+  authority: Authority!
+}
+
+enum Authority {
+  FIRST
+  SECOND
+  THIRD
+}
+
+type Query {
+  users(where: WhereInput, skip: Float, take: Float): [UserModel!]
+}
+
+input WhereInput {
+  email: String
+  name: String
+  authority: String
+}
+
+type Mutation {
+  createUser(data: UserCreateInput!): UserModel!
+}
+
+input UserCreateInput {
+  email: String!
+  name: String!
+  authority: Authority
+}
