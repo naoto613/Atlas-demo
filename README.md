@@ -75,5 +75,5 @@ Nest is [MIT licensed](LICENSE).
 ## Prisma からファイルの生成
 
 ```
-yarn prisma generate --schema=./src/infrastructure/prisma/schema.prisma
+yarn generate
 ```
