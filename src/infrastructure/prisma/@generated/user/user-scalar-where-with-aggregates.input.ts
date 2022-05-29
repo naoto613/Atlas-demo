@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input';
 import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input';
+import { IntNullableWithAggregatesFilter } from '../prisma/int-nullable-with-aggregates-filter.input';
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input';
 import { HideField } from '@nestjs/graphql';
 import { EnumAuthorityWithAggregatesFilter } from '../prisma/enum-authority-with-aggregates-filter.input';
@@ -26,6 +27,9 @@ export class UserScalarWhereWithAggregatesInput {
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })
   name?: StringWithAggregatesFilter;
+
+  @Field(() => IntNullableWithAggregatesFilter, { nullable: true })
+  age?: IntNullableWithAggregatesFilter;
 
   @HideField()
   createdAt?: DateTimeWithAggregatesFilter;

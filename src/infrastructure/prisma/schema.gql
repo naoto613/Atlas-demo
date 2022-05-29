@@ -4,10 +4,9 @@
 
 type UserModel {
   id: ID!
-
-  """@Validator.@IsEmail()"""
   email: String!
   name: String!
+  age: Int
   authority: Authority!
 }
 
@@ -24,6 +23,7 @@ type Query {
 input SearchInput {
   email: String
   name: String
+  test: Int
   authority: String
 }
 
@@ -34,5 +34,6 @@ type Mutation {
 input UserCreateInput {
   email: String!
   name: String!
+  age: Int
   authority: Authority
 }

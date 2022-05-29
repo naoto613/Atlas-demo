@@ -11,11 +11,18 @@ export class UserUncheckedCreateInput {
   id?: number;
 
   @Field(() => String, { nullable: false })
+  @Validator.IsEmail()
   email!: string;
 
   @Field(() => String, { nullable: false })
   @Validator.IsNotEmpty()
   name!: string;
+
+  @Field(() => Int, { nullable: true })
+  @Validator.IsOptional()
+  @Validator.IsInt()
+  @Validator.Min(0)
+  age?: number;
 
   @HideField()
   createdAt?: Date | string;

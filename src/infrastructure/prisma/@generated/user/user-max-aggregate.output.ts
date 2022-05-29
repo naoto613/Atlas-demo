@@ -15,6 +15,9 @@ export class UserMaxAggregate {
   @Field(() => String, { nullable: true })
   name?: string;
 
+  @Field(() => Int, { nullable: true })
+  age?: number;
+
   @HideField()
   createdAt?: Date | string;
 

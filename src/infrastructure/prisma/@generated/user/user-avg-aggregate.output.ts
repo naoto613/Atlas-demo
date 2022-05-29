@@ -6,4 +6,7 @@ import { Float } from '@nestjs/graphql';
 export class UserAvgAggregate {
   @Field(() => Float, { nullable: true })
   id?: number;
+
+  @Field(() => Float, { nullable: true })
+  age?: number;
 }

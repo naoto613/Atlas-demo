@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
+import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { HideField } from '@nestjs/graphql';
 import { EnumAuthorityFilter } from '../prisma/enum-authority-filter.input';
@@ -26,6 +27,9 @@ export class UserWhereInput {
 
   @Field(() => StringFilter, { nullable: true })
   name?: StringFilter;
+
+  @Field(() => IntNullableFilter, { nullable: true })
+  age?: IntNullableFilter;
 
   @HideField()
   createdAt?: DateTimeFilter;

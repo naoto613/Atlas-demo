@@ -1,17 +1,25 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import * as Validator from 'class-validator';
+import { Int } from '@nestjs/graphql';
 import { HideField } from '@nestjs/graphql';
 import { Authority } from '../prisma/authority.enum';
 
 @InputType()
 export class UserCreateInput {
   @Field(() => String, { nullable: false })
+  @Validator.IsEmail()
   email!: string;
 
   @Field(() => String, { nullable: false })
   @Validator.IsNotEmpty()
   name!: string;
+
+  @Field(() => Int, { nullable: true })
+  @Validator.IsOptional()
+  @Validator.IsInt()
+  @Validator.Min(0)
+  age?: number;
 
   @HideField()
   createdAt?: Date | string;

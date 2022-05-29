@@ -17,8 +17,12 @@ function buildPrismaIncludeFromAttrs(attrs: Record<string, any>) {
   const include = Object.keys(attrs).reduce((prev, curr) => {
     const value = attrs[curr];
     const isObject = typeof value === 'object';
+    console.log('value');
+    console.log(value);
     const isRelation =
-      isObject && Object.keys(value).find((v) => v.match(/connect|create/));
+      isObject &&
+      value !== null &&
+      Object.keys(value).find((v) => v.match(/connect|create/));
 
     if (isRelation) {
       prev[curr] = true;

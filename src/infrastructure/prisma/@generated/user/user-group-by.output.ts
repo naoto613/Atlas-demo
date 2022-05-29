@@ -20,6 +20,9 @@ export class UserGroupBy {
   @Field(() => String, { nullable: false })
   name!: string;
 
+  @Field(() => Int, { nullable: true })
+  age?: number;
+
   @HideField()
   createdAt!: Date | string;
 

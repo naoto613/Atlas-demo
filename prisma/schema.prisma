@@ -5,18 +5,28 @@ generator client {
 generator nestgraphql {
   provider               = "node node_modules/prisma-nestjs-graphql"
   output                 = "../src/infrastructure/prisma/@generated"
-  fields_Validator_input = "true"
-  decorate_1_arguments   = "[]"
-  decorate_1_from        = "class-validator"
-  decorate_2_name        = "Type"
-  decorate_2_type        = "CreateOne*Args"
-  decorate_2_from        = "class-transformer"
   fields_Validator_from  = "class-validator"
-  decorate_1_field       = "data"
+  fields_Validator_input = true
   decorate_1_type        = "CreateOne*Args"
-  decorate_2_field       = "data"
-  decorate_1_name        = "ValidateNested"
-  decorate_2_arguments   = "['() => {propertyType.0}']"
+  decorate_1_field       = data
+  decorate_1_name        = ValidateNested
+  decorate_1_from        = "class-validator"
+  decorate_1_arguments   = "[]"
+  decorate_2_type        = "CreateMany*Args"
+  decorate_2_field       = data
+  decorate_2_name        = ValidateNested
+  decorate_2_from        = "class-validator"
+  decorate_2_arguments   = "[]"
+  decorate_3_type        = "UpdateOne*Args"
+  decorate_3_field       = data
+  decorate_3_name        = ValidateNested
+  decorate_3_from        = "class-validator"
+  decorate_3_arguments   = "[]"
+  decorate_4_type        = "UpdateMany*Args"
+  decorate_4_field       = data
+  decorate_4_name        = ValidateNested
+  decorate_4_from        = "class-validator"
+  decorate_4_arguments   = "[]"
 }
 
 datasource db {
@@ -27,10 +37,14 @@ datasource db {
 model User {
   /// @Field(() => ID)
   id                 Int       @id @default(autoincrement())
-  /// @Validator.@IsEmail()
+  /// @Validator.IsEmail()
   email              String    @unique
   /// @Validator.IsNotEmpty()
   name               String
+  /// @Validator.IsOptional()
+  /// @Validator.IsInt()
+  /// @Validator.Min(0)
+  age                Int?
   /// @HideField({ input: true, output: true })
   createdAt          DateTime  @default(dbgenerated("NOW()")) @db.Timestamp(0)
   /// @HideField({ input: true, output: true })

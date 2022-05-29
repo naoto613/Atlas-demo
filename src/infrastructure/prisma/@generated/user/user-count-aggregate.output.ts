@@ -14,6 +14,9 @@ export class UserCountAggregate {
   @Field(() => Int, { nullable: false })
   name!: number;
 
+  @Field(() => Int, { nullable: false })
+  age!: number;
+
   @HideField()
   createdAt!: number;
 

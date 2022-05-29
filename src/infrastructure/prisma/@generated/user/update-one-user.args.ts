@@ -1,11 +1,13 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { UserUpdateInput } from './user-update.input';
+import { ValidateNested } from 'class-validator';
 import { UserWhereUniqueInput } from './user-where-unique.input';
 
 @ArgsType()
 export class UpdateOneUserArgs {
   @Field(() => UserUpdateInput, { nullable: false })
+  @ValidateNested()
   data!: UserUpdateInput;
 
   @Field(() => UserWhereUniqueInput, { nullable: false })
