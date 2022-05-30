@@ -7,6 +7,7 @@ import { Min, ValidateNested } from 'class-validator';
 @InputType()
 class SearchInput {
   @Field(() => String, { nullable: true })
+  @Validator.IsEmail()
   email?: string;
 
   @Field(() => String, { nullable: true })
@@ -14,7 +15,7 @@ class SearchInput {
 
   @Field(() => Int, { nullable: true })
   @Validator.IsOptional()
-  @Validator.MinLength(8)
+  // @Validator.MinLength(8)
   @Min(1)
   test?: number;
 
