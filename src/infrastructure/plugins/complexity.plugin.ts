@@ -20,6 +20,10 @@ export class ComplexityPlugin implements ApolloServerPlugin {
 
     return {
       async didResolveOperation({ request, document }) {
+        if (process.env.NODE_ENV === 'test') {
+          return;
+        }
+
         const complexity = getComplexity({
           schema,
           operationName: request.operationName,

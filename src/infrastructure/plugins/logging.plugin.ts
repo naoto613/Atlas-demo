@@ -10,6 +10,10 @@ export class LoggingPlugin implements ApolloServerPlugin {
   async requestDidStart(
     requestContext: GraphQLRequestContext,
   ): Promise<GraphQLRequestListener> {
+    if (process.env.NODE_ENV === 'test') {
+      return;
+    }
+
     console.log('Request started');
     const {
       request: { query, operationName, variables },
@@ -29,9 +33,7 @@ export class LoggingPlugin implements ApolloServerPlugin {
           query,
           variables,
         };
-        if (process.env.NODE_ENV !== 'test') {
-          console.log(message);
-        }
+        console.log(message);
       },
     };
   }
