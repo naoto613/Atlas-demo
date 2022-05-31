@@ -42,8 +42,7 @@ model User {
   /// @Validator.IsNotEmpty()
   name               String
   /// @Validator.IsOptional()
-  /// @Validator.IsInt()
-  /// @Validator.Min(0)
+  /// @Validator.Min(1)
   age                Int?
   /// @HideField({ input: true, output: true })
   createdAt          DateTime  @default(dbgenerated("NOW()")) @db.Timestamp(0)

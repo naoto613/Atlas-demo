@@ -23,7 +23,6 @@ type Query {
 input SearchInput {
   email: String
   name: String
-  test: Int
   authority: String
 }
 

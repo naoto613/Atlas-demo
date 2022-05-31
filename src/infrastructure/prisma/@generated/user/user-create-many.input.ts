@@ -20,8 +20,7 @@ export class UserCreateManyInput {
 
   @Field(() => Int, { nullable: true })
   @Validator.IsOptional()
-  @Validator.IsInt()
-  @Validator.Min(0)
+  @Validator.Min(1)
   age?: number;
 
   @HideField()
