@@ -6,7 +6,7 @@ import { CreateOneUserArgs } from 'src/infrastructure/prisma/@generated/user/cre
 import { UserCreateInput } from 'src/infrastructure/prisma/@generated/user/user-create.input';
 import { cleanupDatabase } from 'src/infrastructure/prisma/cleanup-database';
 import { userFactory } from 'src/infrastructure/prisma/factories/users.factory';
-import prismaService from 'src/infrastructure/prisma/prisma';
+import prismaService from 'src/infrastructure/prisma/prisma-service';
 
 describe('UsersRepository', () => {
   let repository: UsersRepository;
