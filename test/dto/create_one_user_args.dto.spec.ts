@@ -7,7 +7,6 @@ describe('CreateOneUserArgs', () => {
     it('validate DTO', async () => {
       const target: ValidationPipe = new ValidationPipe({
         transform: true,
-        whitelist: true,
       });
       const testObj = {
         data: {
@@ -32,7 +31,6 @@ describe('CreateOneUserArgs', () => {
     it('validate DTO', async () => {
       const target: ValidationPipe = new ValidationPipe({
         transform: true,
-        whitelist: true,
       });
       const testObj = {
         email: 'test',
@@ -46,7 +44,7 @@ describe('CreateOneUserArgs', () => {
         data: '',
       };
       await target.transform(testObj, metadata).catch((err) => {
-        expect(err.getResponse().message).toEqual(['your validation error']);
+        expect(err.getResponse().message).toEqual(['email must be an email']);
       });
     });
   });
