@@ -1,13 +1,13 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import * as request from 'supertest';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
-import { AppModule } from '../../src/app.module';
 import { Authority } from '@prisma/client';
-import { UserCreateInput } from '../../src/infrastructure/prisma/@generated/user/user-create.input';
-import { cleanupDatabase } from '../../src/infrastructure/prisma/cleanup-database';
-import { userFactory } from '../../src/infrastructure/prisma/factories/users.factory';
-import { GraphQLErrorOutput } from '../../src/dto/errors/graphql-error.output';
-import { GraphQLErrorExtensions } from '../../src/dto/errors/graphql-error-extensions';
+import { cleanupDatabase } from 'src/infrastructure/prisma/cleanup-database';
+import { AppModule } from 'src/app.module';
+import { UserCreateInput } from 'src/infrastructure/prisma/@generated/user/user-create.input';
+import { userFactory } from 'src/infrastructure/prisma/factories/users.factory';
+import { GraphQLErrorOutput } from 'src/dto/errors/graphql-error.output';
+import { GraphQLErrorExtensions } from 'src/dto/errors/graphql-error-extensions';
 
 describe('Users', () => {
   let app: INestApplication;

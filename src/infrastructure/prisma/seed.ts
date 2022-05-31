@@ -1,5 +1,5 @@
-import { UserCreateInput } from './@generated/user/user-create.input';
-import { userFactory } from './factories/users.factory';
+import { UserCreateInput } from 'src/infrastructure/prisma/@generated/user/user-create.input';
+import { userFactory } from 'src/infrastructure/prisma/factories/users.factory';
 
 // user
 const createUsers = async () => {

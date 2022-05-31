@@ -1,6 +1,6 @@
 import { ArgumentMetadata, ValidationPipe } from '@nestjs/common';
-import { CreateOneUserArgs } from '../../src/infrastructure/prisma/@generated/user/create-one-user.args';
-import { UserCreateInput } from '../../src/infrastructure/prisma/@generated/user/user-create.input';
+import { CreateOneUserArgs } from 'src/infrastructure/prisma/@generated/user/create-one-user.args';
+import { UserCreateInput } from 'src/infrastructure/prisma/@generated/user/user-create.input';
 
 describe('CreateOneUserArgs', () => {
   describe('validation', () => {

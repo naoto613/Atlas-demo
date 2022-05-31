@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { UsersRepository } from '../../../src/application/repositories/users.repository';
-import { CreateUserUseCase } from '../../../src/application/use-cases/users/create-user.use-case';
-import { UserModel } from '../../../src/domain/models/user.model';
-import { UsersRepositoryModule } from '../../../src/infrastructure/ioc/repositories/users.repository.module';
-import { CreateOneUserArgs } from '../../../src/infrastructure/prisma/@generated/user/create-one-user.args';
+import { UsersRepository } from 'src/application/repositories/users.repository';
+import { CreateUserUseCase } from 'src/application/use-cases/users/create-user.use-case';
+import { UserModel } from 'src/domain/models/user.model';
+import { UsersRepositoryModule } from 'src/infrastructure/ioc/repositories/users.repository.module';
+import { CreateOneUserArgs } from 'src/infrastructure/prisma/@generated/user/create-one-user.args';
 
 describe('CreateUserUseCase', () => {
   let useCase: CreateUserUseCase;

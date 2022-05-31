@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { UserModel } from '../../../domain/models/user.model';
-import { CreateOneUserArgs } from '../../../infrastructure/prisma/@generated/user/create-one-user.args';
-import { UsersRepository } from '../../repositories/users.repository';
+import { UsersRepository } from 'src/application/repositories/users.repository';
+import { UserModel } from 'src/domain/models/user.model';
+import { CreateOneUserArgs } from 'src/infrastructure/prisma/@generated/user/create-one-user.args';
 
 @Injectable()
 export class CreateUserUseCase {

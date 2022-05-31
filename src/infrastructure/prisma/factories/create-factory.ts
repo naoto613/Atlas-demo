@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import prisma from '../prisma';
+import prismaService from 'src/infrastructure/prisma/prisma-service';
 
 type Awaited<T> = T extends PromiseLike<infer U> ? U : T;
 
@@ -49,7 +49,7 @@ export const createFactory = <CreateInputType, ModelType>(
       const includes = buildPrismaIncludeFromAttrs(attrs);
       if (includes) options.include = includes;
 
-      return await prisma[modelName as string].create({
+      return await prismaService[modelName as string].create({
         data: { ...obj },
         ...options,
       });

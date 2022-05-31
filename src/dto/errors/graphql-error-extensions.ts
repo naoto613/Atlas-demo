@@ -1,5 +1,5 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { GraphQLErrorResponse } from './graphql-error-response';
+import { GraphQLErrorResponse } from 'src/dto/errors/graphql-error-response';
 
 @ObjectType()
 export class GraphQLErrorExtensions {

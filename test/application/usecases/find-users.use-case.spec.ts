@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { UsersRepository } from '../../../src/application/repositories/users.repository';
-import { FindUsersUseCase } from '../../../src/application/use-cases/users/find-users.use-case';
-import { UserModel } from '../../../src/domain/models/user.model';
-import { SearchUsersInput } from '../../../src/dto/users/search-users.input';
-import { UsersRepositoryModule } from '../../../src/infrastructure/ioc/repositories/users.repository.module';
+import { UsersRepository } from 'src/application/repositories/users.repository';
+import { FindUsersUseCase } from 'src/application/use-cases/users/find-users.use-case';
+import { UserModel } from 'src/domain/models/user.model';
+import { SearchUsersInput } from 'src/dto/users/search-users.input';
+import { UsersRepositoryModule } from 'src/infrastructure/ioc/repositories/users.repository.module';
 
 describe('FindUsersUseCase', () => {
   let useCase: FindUsersUseCase;

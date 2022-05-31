@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { UsersRepository } from '../../application/repositories/users.repository';
-import { SearchUsersInput } from '../../dto/users/search-users.input';
-import { CreateOneUserArgs } from '../../infrastructure/prisma/@generated/user/create-one-user.args';
-import prisma from '../../infrastructure/prisma/prisma';
-import { UserModel } from '../models/user.model';
+import { UsersRepository } from 'src/application/repositories/users.repository';
+import { UserModel } from 'src/domain/models/user.model';
+import { SearchUsersInput } from 'src/dto/users/search-users.input';
+import { CreateOneUserArgs } from 'src/infrastructure/prisma/@generated/user/create-one-user.args';
+import prismaService from 'src/infrastructure/prisma/prisma-service';
 
 @Injectable()
 export class UsersRepositoryImpl implements UsersRepository {
   async create(input: Readonly<CreateOneUserArgs>): Promise<UserModel> {
-    return prisma.user.create(input);
+    return prismaService.user.create(input);
   }
 
   async findMany(
@@ -31,7 +31,7 @@ export class UsersRepositoryImpl implements UsersRepository {
             ],
           }
         : undefined;
-    return prisma.user.findMany({
+    return prismaService.user.findMany({
       skip,
       take,
       where,

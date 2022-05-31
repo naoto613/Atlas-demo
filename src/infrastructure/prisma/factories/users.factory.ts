@@ -1,7 +1,7 @@
 import { Authority } from '@prisma/client';
-import { UserModel } from '../../../domain/models/user.model';
-import { UserCreateInput } from '../@generated/user/user-create.input';
-import { createFactory } from './create-factory';
+import { UserModel } from 'src/domain/models/user.model';
+import { UserCreateInput } from 'src/infrastructure/prisma/@generated/user/user-create.input';
+import { createFactory } from 'src/infrastructure/prisma/factories/create-factory';
 
 const defaultAttributes: UserCreateInput = {
   email: 'test@example.com',

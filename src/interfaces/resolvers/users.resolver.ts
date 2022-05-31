@@ -1,9 +1,9 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { CreateUserUseCase } from '../../application/use-cases/users/create-user.use-case';
-import { FindUsersUseCase } from '../../application/use-cases/users/find-users.use-case';
-import { UserModel } from '../../domain/models/user.model';
-import { SearchUsersInput } from '../../dto/users/search-users.input';
-import { CreateOneUserArgs } from '../../infrastructure/prisma/@generated/user/create-one-user.args';
+import { CreateUserUseCase } from 'src/application/use-cases/users/create-user.use-case';
+import { FindUsersUseCase } from 'src/application/use-cases/users/find-users.use-case';
+import { UserModel } from 'src/domain/models/user.model';
+import { SearchUsersInput } from 'src/dto/users/search-users.input';
+import { CreateOneUserArgs } from 'src/infrastructure/prisma/@generated/user/create-one-user.args';
 
 @Resolver(() => UserModel)
 export class UsersResolver {

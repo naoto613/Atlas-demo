@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { UserModel } from '../../../domain/models/user.model';
-import { SearchUsersInput } from '../../../dto/users/search-users.input';
-import { UsersRepository } from '../../repositories/users.repository';
+import { UsersRepository } from 'src/application/repositories/users.repository';
+import { UserModel } from 'src/domain/models/user.model';
+import { SearchUsersInput } from 'src/dto/users/search-users.input';
 
 @Injectable()
 export class FindUsersUseCase {

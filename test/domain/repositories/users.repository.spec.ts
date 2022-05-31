@@ -1,12 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { Authority } from '@prisma/client';
-import { UsersRepository } from '../../../src/application/repositories/users.repository';
-import { UsersRepositoryModule } from '../../../src/infrastructure/ioc/repositories/users.repository.module';
-import { cleanupDatabase } from '../../../src/infrastructure/prisma/cleanup-database';
-import { CreateOneUserArgs } from '../../../src/infrastructure/prisma/@generated/user/create-one-user.args';
-import { UserCreateInput } from '../../../src/infrastructure/prisma/@generated/user/user-create.input';
-import { userFactory } from '../../../src/infrastructure/prisma/factories/users.factory';
-import prisma from '../../../src/infrastructure/prisma/prisma';
+import { UsersRepository } from 'src/application/repositories/users.repository';
+import { UsersRepositoryModule } from 'src/infrastructure/ioc/repositories/users.repository.module';
+import { CreateOneUserArgs } from 'src/infrastructure/prisma/@generated/user/create-one-user.args';
+import { UserCreateInput } from 'src/infrastructure/prisma/@generated/user/user-create.input';
+import { cleanupDatabase } from 'src/infrastructure/prisma/cleanup-database';
+import { userFactory } from 'src/infrastructure/prisma/factories/users.factory';
+import prismaService from 'src/infrastructure/prisma/prisma';
 
 describe('UsersRepository', () => {
   let repository: UsersRepository;
@@ -32,7 +32,7 @@ describe('UsersRepository', () => {
       // 実行
       await repository.create(userCreateInput);
 
-      const savedUsers = await prisma.user.findMany({
+      const savedUsers = await prismaService.user.findMany({
         where: { email: userCreateInput.data.email },
         take: 1,
       });
@@ -107,7 +107,7 @@ describe('UsersRepository', () => {
       expect(users.length).toBe(1);
     });
 
-    it('should get users order by email', async () => {
+    it('should get all users order by email', async () => {
       const users = await repository.findMany({
         searchInput: null,
       });
