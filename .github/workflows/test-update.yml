@@ -1,0 +1,46 @@
+name: Test
+
+on:
+  push:
+    branches-ignore:
+      - master
+      - staging
+      - production
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.14]
+        shard: [1, 2, 3, 4]
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_DATABASE: database
+          MYSQL_ROOT_PASSWORD: password
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: yarn
+
+      - name: restore env file
+        run: |
+          echo "${{ secrets.GPG_PASSPHRASE }}" | sudo gpg --batch --passphrase-fd 0 --output ".env" --decrypt "env/.env.gpg"
+
+      - name: yarn install, build, and test
+        run: |
+          yarn install --non-interactive --frozen-lockfile
+          yarn prisma generate
+          yarn prisma migrate deploy
+          ./node_modules/.bin/env-cmd -e .env.test jest --maxWorkers=1 --shard=${{ matrix.shard }}/${{ strategy.job-total }}
