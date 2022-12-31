@@ -43,4 +43,4 @@ jobs:
           yarn install --non-interactive --frozen-lockfile
           yarn prisma generate
           yarn prisma migrate deploy
-          ./node_modules/.bin/env-cmd -e .env.test jest --maxWorkers=1 --shard=${{ matrix.shard }}/${{ strategy.job-total }}
+          ./node_modules/.bin/dotenv -e .env.test jest --maxWorkers=1 --shard=${{ matrix.shard }}/${{ strategy.job-total }}
